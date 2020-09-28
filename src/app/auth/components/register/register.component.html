@@ -8,6 +8,9 @@
              routerLinkActive="router-link-active">Have an account?</a>
         </p>
 
+        <app-backend-error-messages *ngIf="(backendErrors$ | async)"
+                                    [backendErrors]="(backendErrors$ | async)"></app-backend-error-messages>
+
         <form [formGroup]="form"
               (ngSubmit)="onSubmit()">
 
