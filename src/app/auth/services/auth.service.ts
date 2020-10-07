@@ -16,13 +16,23 @@ export class AuthService {
     const url = environment.apiUrl + '/users';
     return this.http
       .post<AuthResponceInterface>(url, data)
-      .pipe(map((res: AuthResponceInterface) => res.user));
+      .pipe(map(this.getUser));
   }
 
   login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
     const url = environment.apiUrl + '/users/login';
     return this.http
       .post<AuthResponceInterface>(url, data)
-      .pipe(map((res: AuthResponceInterface) => res.user));
+      .pipe(map(this.getUser));
+  }
+
+  getCurrentUser(): Observable<CurrentUserInterface> {
+    const url = environment.apiUrl + 'user';
+
+    return this.http.get(url).pipe(map(this.getUser));
+  }
+
+  private getUser(responce: AuthResponceInterface) {
+    return responce.user;
   }
 }

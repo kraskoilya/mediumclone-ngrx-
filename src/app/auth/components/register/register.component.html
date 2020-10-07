@@ -37,7 +37,8 @@
                      type="password">
             </fieldset>
 
-            <button class="btn btn-lg btn-primary pull-xs-right"
+            <button [disabled]="(isSubmitting$ | async)"
+                    class="btn btn-lg btn-primary pull-xs-right"
                     type="submit"> Sign up </button>
 
           </fieldset>

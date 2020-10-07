@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
 import { of } from 'rxjs';
-import { catchError, map, switchMap } from 'rxjs/operators';
+import { catchError, map, switchMap, tap } from 'rxjs/operators';
 import { PersistanceService } from 'src/app/shared/services/persistance.service';
 import { CurrentUserInterface } from 'src/app/shared/types/currentUser.interface';
 import { AuthService } from '../../services/auth.service';
@@ -32,6 +32,17 @@ export class LoginEffect {
         );
       })
     )
+  );
+
+  redirectAfterSubmit = createEffect(
+    () =>
+      this.actions$.pipe(
+        ofType(loginSuccessAction),
+        tap(() => {
+          this.router.navigateByUrl('/');
+        })
+      ),
+    { dispatch: false }
   );
 
   constructor(
