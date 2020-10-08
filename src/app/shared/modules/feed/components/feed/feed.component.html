@@ -2,45 +2,51 @@
 <app-error-message *ngIf="(error$ | async)"
                    [message]="'Some error happened...'"></app-error-message>
 
-<div class="article-preview"
-     *ngFor="let article of (feed$ | async)?.articles">
+<ng-container *ngIf="(feed$ | async)?.articles">
 
-  <div class="article-meta">
-    <a [routerLink]="['/profiles', article?.author?.username]"
-       routerLinkActive="router-link-active">
-      <img *ngIf="article?.author?.image"
-           [src]="article?.author?.image"
-           alt="">
-    </a>
+  <div class="article-preview"
+       *ngFor="let article of (feed$ | async)?.articles">
 
-
-    <div class="info">
+    <div class="article-meta">
       <a [routerLink]="['/profiles', article?.author?.username]"
          routerLinkActive="router-link-active">
-        {{article?.author?.username}}
+        <img *ngIf="article?.author?.image"
+             [src]="article?.author?.image"
+             alt="">
       </a>
-      <span class="date">{{article?.createdAt}}</span>
+
+
+      <div class="info">
+        <a [routerLink]="['/profiles', article?.author?.username]"
+           routerLinkActive="router-link-active">
+          {{article?.author?.username}}
+        </a>
+        <span class="date">{{article?.createdAt}}</span>
+      </div>
+
+      <div class="pull-xs-right">
+        kek
+      </div>
     </div>
 
-    <div class="pull-xs-right">
-      kek
-    </div>
+
+    <a class="preview-link"
+       [routerLink]="['/articles', article?.slug]"
+       routerLinkActive="router-link-active">
+      <h1>
+        {{article.title}}
+      </h1>
+      <p>
+        {{article.description}}
+      </p>
+
+      tags
+    </a>
   </div>
 
 
-  <a class="preview-link"
-     [routerLink]="['/articles', article?.slug]"
-     routerLinkActive="router-link-active">
-    <h1>
-      {{article.title}}
-    </h1>
-    <p>
-      {{article.description}}
-    </p>
-
-    tags
-  </a>
-</div>
-
-
-pagination
+  <app-pagination [total]="(feed$ | async)?.articlesCount"
+                  [limit]="limit"
+                  [url]="baseUrl"
+                  [currentPage]="currentPage"></app-pagination>
+</ng-container>
