@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { BannerModule } from '../shared/modules/banner/banner.module';
+import { FeedToggleModule } from '../shared/modules/feed-toggle/feed-toggle.module';
 import { FeedModule } from '../shared/modules/feed/feed.module';
 import { PopularTagsModule } from '../shared/modules/popular-tags/popular-tags.module';
 import { GlobalFeedComponent } from './components/global-feed/global-feed.component';
@@ -14,6 +15,7 @@ import { GlobalFeedRoutingModule } from './global-feed-routing.module';
     FeedModule,
     BannerModule,
     PopularTagsModule,
+    FeedToggleModule,
   ],
 })
 export class GlobalFeedModule {}
