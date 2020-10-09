@@ -1,0 +1,26 @@
+<app-loading *ngIf="(isLoading$ | async)"></app-loading>
+<app-error-message *ngIf="(error$ | async)"
+                   [message]="'Some error happened...'"></app-error-message>
+
+<ng-container *ngIf="(tags$ | async)?.tags?.length; else elseTemplate">
+  <div class="sidebar">
+    <p>Popular Tags</p>
+
+    <div class="tag-list">
+
+      <ng-container *ngFor="let tag of (tags$ | async)?.tags">
+
+        <a [routerLink]="['/tags', tag]"
+           class="tag-default tag-pill">
+          {{tag}}
+        </a>
+
+      </ng-container>
+
+    </div>
+  </div>
+</ng-container>
+
+<ng-template #elseTemplate>
+  <div> No tags are here... yet. </div>
+</ng-template>
