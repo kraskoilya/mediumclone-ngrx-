@@ -1,4 +1,10 @@
-import { Component, Input, OnInit } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnChanges,
+  OnInit,
+  SimpleChanges,
+} from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { parseUrl, stringify } from 'query-string';
@@ -17,7 +23,7 @@ import { GetFeedResponceInterface } from './../../types/getFeedResponce.interfac
   templateUrl: './feed.component.html',
   styleUrls: ['./feed.component.scss'],
 })
-export class FeedComponent implements OnInit {
+export class FeedComponent implements OnInit, OnChanges {
   // tslint:disable-next-line:no-input-rename
   @Input('apiUrl') apiUrlProps: string;
 
@@ -38,6 +44,15 @@ export class FeedComponent implements OnInit {
   ngOnInit(): void {
     this.initializeValues();
     this.initializeListeners();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    const isApiChanged =
+      !changes.apiUrlProps.firstChange &&
+      changes.apiUrlProps.currentValue !== changes.apiUrlProps.previousValue;
+    if (isApiChanged) {
+      this.fetchFeed();
+    }
   }
 
   private initializeListeners(): void {

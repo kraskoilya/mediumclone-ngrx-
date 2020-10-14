@@ -13,6 +13,8 @@ import { AuthInterceptor } from './auth/services/auth-interceptor.service';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
 import { TopBarModule } from './shared/modules/top-bar/top-bar.module';
 import { PersistanceService } from './shared/services/persistance.service';
+import { TagFeedModule } from './tag-feed/tag-feed.module';
+import { YourFeedModule } from './your-feed/your-feed.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -30,6 +32,8 @@ import { PersistanceService } from './shared/services/persistance.service';
     TopBarModule,
     GlobalFeedModule,
     StoreRouterConnectingModule.forRoot(),
+    YourFeedModule,
+    TagFeedModule,
   ],
   providers: [
     PersistanceService,

@@ -2,7 +2,7 @@
 <app-error-message *ngIf="(error$ | async)"
                    [message]="'Some error happened...'"></app-error-message>
 
-<ng-container *ngIf="(feed$ | async)?.articles">
+<ng-container *ngIf="(feed$ | async)?.articles?.length">
 
   <div class="article-preview"
        *ngFor="let article of (feed$ | async)?.articles">

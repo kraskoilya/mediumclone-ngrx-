@@ -11,7 +11,8 @@
     <li class="nav-item">
       <a class="nav-link"
          [routerLink]="['/']"
-         routerLinkActive="active">
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{ exact: true }">
         Global Feed
       </a>
     </li>
@@ -19,7 +20,8 @@
         class="nav-item">
       <a [routerLink]="['/tags', tagNameProps]"
          routerLinkActive="active"
-         class="nav-link active">
+         class="nav-link active"
+         [routerLinkActiveOptions]="{ exact: true, __hack__: tagNameProps}">
         <i class="ion-pound"></i>
         {{tagNameProps}}
       </a>
