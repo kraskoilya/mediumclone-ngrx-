@@ -8,6 +8,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ArticleModule } from './article/article.module';
 import { AuthModule } from './auth/auth.module';
 import { AuthInterceptor } from './auth/services/auth-interceptor.service';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
@@ -34,6 +35,7 @@ import { YourFeedModule } from './your-feed/your-feed.module';
     StoreRouterConnectingModule.forRoot(),
     YourFeedModule,
     TagFeedModule,
+    ArticleModule,
   ],
   providers: [
     PersistanceService,
