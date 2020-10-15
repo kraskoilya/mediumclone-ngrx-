@@ -14,7 +14,7 @@ export class ArticleFormComponent implements OnInit {
   // tslint:disable-next-line:no-input-rename
   @Input('isSubmitting') isSubmittingProps: boolean;
   // tslint:disable-next-line:no-input-rename
-  @Input('error') errorProps: BackendErrorsInterface | null;
+  @Input('errors') errorProps: BackendErrorsInterface | null;
 
   // tslint:disable-next-line:no-output-rename
   @Output('articleSubmit') articleSubmitEvent = new EventEmitter<
