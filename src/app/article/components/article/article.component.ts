@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { combineLatest, Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { deleteArticleAction } from '../../store/actions/deleteArticle.action';
 import {
   articleSelector,
   errorSelector,
@@ -37,6 +38,10 @@ export class ArticleComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.articleSubscription.unsubscribe();
+  }
+
+  deleteArticle() {
+    this.store.dispatch(deleteArticleAction({ slug: this.slug }));
   }
 
   private fetchData(): void {

@@ -8,6 +8,8 @@ import { LoadingModule } from '../shared/modules/loading/loading.module';
 import { TagListModule } from '../shared/modules/tag-list/tag-list.module';
 import { ArticleRoutingModule } from './article-routing.module';
 import { ArticleComponent } from './components/article/article.component';
+import { ArticleService } from './services/article.service';
+import { DeleteArticle } from './store/effects/deleteArticle.effect';
 import { GetArticleEffect } from './store/effects/getArticle.effect';
 import { reducers } from './store/reducers';
 
@@ -16,12 +18,13 @@ import { reducers } from './store/reducers';
   imports: [
     CommonModule,
     ArticleRoutingModule,
-    EffectsModule.forFeature([GetArticleEffect]),
+    EffectsModule.forFeature([GetArticleEffect, DeleteArticle]),
     StoreModule.forFeature('article', reducers),
     RouterModule,
     ErrorMessageModule,
     LoadingModule,
     TagListModule,
   ],
+  providers: [ArticleService],
 })
 export class ArticleModule {}

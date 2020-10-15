@@ -12,23 +12,31 @@
           <img [src]="article?.author?.image"
                alt="">
         </a>
-        <a [routerLink]="['/profiles', article.author.username]"
-           routerLinkActive="active">
-          {{article.author.username}}
-        </a>
-        <span class="date">
-          {{article.createdAt}}
-        </span>
+        <div class="info">
+          <a [routerLink]="['/profiles', article.author.username]"
+             routerLinkActive="active">
+            {{article.author.username}}
+          </a>
 
-        <br>
+          <span class="date">
+            {{article.createdAt | date: 'dd:MMM:yyyy'}}
+          </span>
+        </div>
+
         <span *ngIf="(isAuthor$ | async)">
           <a [routerLink]="['/articles', article.slug, 'edit']"
              routerLinkActive="router-link-active"
-             class="btn btn-outline-secondary btn-small">
+             class="btn btn-outline-secondary btn-sm">
             <i class="ion-edit"></i>
             Edit article
           </a>
-          delete btn
+
+
+          <a (click)="deleteArticle()"
+             class="btn btn-sm btn-outline-danger">
+            <i class="ion-trash-a"></i>
+            Delete article
+          </a>
         </span>
 
       </div>
