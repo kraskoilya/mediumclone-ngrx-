@@ -12,6 +12,7 @@ import { ArticleModule } from './article/article.module';
 import { AuthModule } from './auth/auth.module';
 import { AuthInterceptor } from './auth/services/auth-interceptor.service';
 import { CreateArticleModule } from './create-article/create-article.module';
+import { EditArticleModule } from './edit-article/edit-article.module';
 import { GlobalFeedModule } from './global-feed/global-feed.module';
 import { TopBarModule } from './shared/modules/top-bar/top-bar.module';
 import { PersistanceService } from './shared/services/persistance.service';
@@ -33,6 +34,7 @@ import { YourFeedModule } from './your-feed/your-feed.module';
     EffectsModule.forRoot([]),
     TopBarModule,
     GlobalFeedModule,
+    EditArticleModule,
     StoreRouterConnectingModule.forRoot(),
     YourFeedModule,
     TagFeedModule,
