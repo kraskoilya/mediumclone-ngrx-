@@ -12,7 +12,9 @@ import { RegisterComponent } from './components/register/register.component';
 import { AuthService } from './services/auth.service';
 import { GetCurrentUserEffect } from './store/effects/get-current-user.effect';
 import { LoginEffect } from './store/effects/login.effect';
+import { LogoutEffect } from './store/effects/logout.effect';
 import { RegisterEffect } from './store/effects/register.effect';
+import { UpdateCurrentUserEffect } from './store/effects/updateCurrentUser.effect';
 import { reducer } from './store/redusers';
 
 @NgModule({
@@ -26,6 +28,8 @@ import { reducer } from './store/redusers';
       RegisterEffect,
       LoginEffect,
       GetCurrentUserEffect,
+      UpdateCurrentUserEffect,
+      LogoutEffect,
     ]),
     SharedModule,
     BackendErrorMessageModule,
