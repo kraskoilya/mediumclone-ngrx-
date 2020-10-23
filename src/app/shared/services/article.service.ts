@@ -19,4 +19,20 @@ export class ArticleService {
       .get<GetArticleResponceInterface>(fullUrl)
       .pipe(map((res: GetArticleResponceInterface) => res.article));
   }
+
+  likeArticle(slug: string): Observable<ArticleInterface> {
+    const fullUrl = `${environment.apiUrl}articles/${slug}/favorite`;
+
+    return this.http
+      .post<GetArticleResponceInterface>(fullUrl, {})
+      .pipe(map((res: GetArticleResponceInterface) => res.article));
+  }
+
+  dislikeArticle(slug: string): Observable<ArticleInterface> {
+    const fullUrl = `${environment.apiUrl}articles/${slug}/favorite`;
+
+    return this.http
+      .delete<GetArticleResponceInterface>(fullUrl)
+      .pipe(map((res: GetArticleResponceInterface) => res.article));
+  }
 }

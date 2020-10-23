@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
 import { StoreModule } from '@ngrx/store';
+import { LikeDislikeModule } from '../../like-dislike/like-dislike.module';
 import { ErrorMessageModule } from '../error-message/error-message.module';
 import { LoadingModule } from '../loading/loading.module';
 import { PaginationModule } from '../pagination/pagination.module';
@@ -23,6 +24,7 @@ import { reducers } from './store/reducers';
     LoadingModule,
     PaginationModule,
     TagListModule,
+    LikeDislikeModule,
   ],
   exports: [FeedComponent],
   providers: [FeedService],

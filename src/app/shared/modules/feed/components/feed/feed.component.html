@@ -25,7 +25,8 @@
       </div>
 
       <div class="pull-xs-right">
-        kek
+        <app-like-dislike [isLoggedIn]="(isLoggedIn$ | async)"
+                          [article]="article"></app-like-dislike>
       </div>
     </div>
 

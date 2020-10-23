@@ -1,5 +1,6 @@
 import { CreateArticleStateInterface } from 'src/app/create-article/types/createArticleState.interface';
 import { AuthStateInterface } from '../../auth/types/authState.interface';
+import { LikeArticleStateInterface } from '../like-dislike/types/like-article-state-interface';
 import { PopularTagsStateInterface } from '../modules/popular-tags/types/popularTagsState';
 import { ArticleStateInterface } from './../../article/types/article-state';
 import { EditArticleStateInterface } from './../../edit-article/types/edit-article-state';
@@ -14,4 +15,5 @@ export interface AppStateInterface {
   createArticle: CreateArticleStateInterface;
   editArticle: EditArticleStateInterface;
   settings: SettingsStateInterface;
+  likeArticle: LikeArticleStateInterface;
 }

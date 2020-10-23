@@ -1,0 +1,8 @@
+<button (click)="submit()"
+        type="button"
+        class="btn btn-sm btn-outline-primary"
+        [ngClass]="{'btn-primary': articleProps?.favorited ,'btn-outline-primary': !articleProps?.favorited }">
+  <i class="ion-heart"></i>
+
+  {{articleProps?.favoritesCount}}
+</button>

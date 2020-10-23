@@ -9,6 +9,7 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { select, Store } from '@ngrx/store';
 import { parseUrl, stringify } from 'query-string';
 import { Observable } from 'rxjs';
+import { isLoggedInSelector } from 'src/app/auth/store/selectors';
 import { environment } from 'src/environments/environment';
 import { getFeedAction } from '../../store/actions/getFeed.action';
 import {
@@ -34,6 +35,7 @@ export class FeedComponent implements OnInit, OnChanges {
   limit = environment.limit;
   baseUrl: string;
   currentPage: number;
+  isLoggedIn$: Observable<boolean>;
 
   constructor(
     private store: Store,
@@ -67,6 +69,7 @@ export class FeedComponent implements OnInit, OnChanges {
     this.error$ = this.store.pipe(select(errorSelector));
     this.feed$ = this.store.pipe(select(feedSelector));
     this.baseUrl = this.router.url.split('?')[0];
+    this.isLoggedIn$ = this.store.pipe(select(isLoggedInSelector));
   }
 
   private fetchFeed(): void {
