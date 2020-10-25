@@ -4,6 +4,7 @@ import { LikeArticleStateInterface } from '../like-dislike/types/like-article-st
 import { PopularTagsStateInterface } from '../modules/popular-tags/types/popularTagsState';
 import { ArticleStateInterface } from './../../article/types/article-state';
 import { EditArticleStateInterface } from './../../edit-article/types/edit-article-state';
+import { ProfileStateInterface } from './../../profile/types/profile-state-interface';
 import { SettingsStateInterface } from './../../settings/store/types/settingsState.interface';
 import { FeedStateInterface } from './../modules/feed/types/feedState.interface';
 
@@ -16,4 +17,5 @@ export interface AppStateInterface {
   editArticle: EditArticleStateInterface;
   settings: SettingsStateInterface;
   likeArticle: LikeArticleStateInterface;
+  profile: ProfileStateInterface;
 }
